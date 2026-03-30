@@ -5,11 +5,24 @@ body {
   overflow-x: hidden;
 }
 
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: $color-text-dark;
+  text-align: center;
+}
+
 .load-more-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 .base-button-purple {
@@ -31,7 +44,7 @@ body {
   gap: 4px;
   transition: all 0.3s ease;
   cursor: pointer;
-  @media (max-width: 992px) {
+  @include media-992 {
     font-size: 12px;
   }
   &:hover {

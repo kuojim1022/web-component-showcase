@@ -7,6 +7,11 @@
 
 入口為根目錄 `index.html`，可由此進入上述兩個頁面。
 
+## 開發環境
+
+- **Node.js：建議使用 20.x（LTS）**，與 `npx`、Dart Sass 等工具行為一致；若使用較舊版本（例如 Node 12），可能出現 `npx` 參數不相容等問題。
+- 若使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows)，可切換至 Node 20 後再執行下方腳本。
+
 ---
 
 ## 編輯 SCSS 樣式

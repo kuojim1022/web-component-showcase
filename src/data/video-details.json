@@ -3,35 +3,35 @@
     "status": true,
     "video": {
       "id": "1",
-      "title": "影片A",
-      "description": "透過簡單的呼吸練習，幫助你放鬆身心、專注當下。適合初學者每日練習。",
-      "youtubeId": "JrCSzAr2UPE",
+      "title": "Sea waves & beach drone video",
+      "description": "以空拍視角呈現海岸線與浪花，藍海與沙灘交錯，節奏舒緩。適合作為放鬆、專注或背景影音，感受海風與潮汐的寧靜氛圍。",
+      "youtubeId": "6stlCkUDG_s",
       "coverImage": ""
     },
     "related": [
       {
         "id": "2",
-        "title": "影片B",
+        "title": "Sunrise video",
         "coverImage": "",
-        "youtubeId": "mcVUxwXSkzA"
+        "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "影片C",
+        "title": "Sahara Desert & Dubai Desert",
         "coverImage": "",
-        "youtubeId": "4iBWD4oTEog"
+        "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "影片D",
+        "title": "HD flower video | Amazing nature",
         "coverImage": "",
-        "youtubeId": "1ndFTfw_byo"
+        "youtubeId": "4N8oOj_aue8"
       },
       {
         "id": "5",
-        "title": "影片E",
+        "title": "FROM EARTH TO SPACE",
         "coverImage": "",
-        "youtubeId": "YAVNRIHoX2I"
+        "youtubeId": "oe70Uhjc_F4"
       }
     ]
   },
@@ -39,35 +39,35 @@
     "status": true,
     "video": {
       "id": "2",
-      "title": "影片B",
-      "description": "認識正念的基本概念，學習觀察思緒而不評判。",
-      "youtubeId": "mcVUxwXSkzA",
+      "title": "Sunrise video",
+      "description": "捕捉日出時分的光影變化，從微亮到天色漸明，色溫柔和。適合早晨觀賞或搭配輕音樂，開啟平靜的一天。",
+      "youtubeId": "gsnqXt7d1mU",
       "coverImage": ""
     },
     "related": [
       {
         "id": "1",
-        "title": "影片A",
+        "title": "Sea waves & beach drone video",
         "coverImage": "",
-        "youtubeId": "JrCSzAr2UPE"
+        "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "3",
-        "title": "影片C",
+        "title": "Sahara Desert & Dubai Desert",
         "coverImage": "",
-        "youtubeId": "4iBWD4oTEog"
+        "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "影片D",
+        "title": "HD flower video | Amazing nature",
         "coverImage": "",
-        "youtubeId": "1ndFTfw_byo"
+        "youtubeId": "4N8oOj_aue8"
       },
       {
         "id": "5",
-        "title": "影片E",
+        "title": "FROM EARTH TO SPACE",
         "coverImage": "",
-        "youtubeId": "YAVNRIHoX2I"
+        "youtubeId": "oe70Uhjc_F4"
       }
     ]
   },
@@ -75,35 +75,35 @@
     "status": true,
     "video": {
       "id": "3",
-      "title": "影片C",
-      "description": "十五分鐘的語音引導，協助你在睡前釋放壓力、安穩入眠。",
-      "youtubeId": "4iBWD4oTEog",
+      "title": "Sahara Desert & Dubai Desert",
+      "description": "結合撒哈拉與杜拜周邊沙漠景觀，廣闊沙丘、光影與地平線層次分明。適合欣賞地貌與旅行風格畫面，感受乾燥地帶的壯闊與寂靜。",
+      "youtubeId": "eg2g6FPsdLI",
       "coverImage": ""
     },
     "related": [
       {
         "id": "1",
-        "title": "影片A",
+        "title": "Sea waves & beach drone video",
         "coverImage": "",
-        "youtubeId": "JrCSzAr2UPE"
+        "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "影片B",
+        "title": "Sunrise video",
         "coverImage": "",
-        "youtubeId": "mcVUxwXSkzA"
+        "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "4",
-        "title": "影片D",
+        "title": "HD flower video | Amazing nature",
         "coverImage": "",
-        "youtubeId": "1ndFTfw_byo"
+        "youtubeId": "4N8oOj_aue8"
       },
       {
         "id": "5",
-        "title": "影片E",
+        "title": "FROM EARTH TO SPACE",
         "coverImage": "",
-        "youtubeId": "YAVNRIHoX2I"
+        "youtubeId": "oe70Uhjc_F4"
       }
     ]
   },
@@ -111,35 +111,35 @@
     "status": true,
     "video": {
       "id": "4",
-      "title": "影片D",
-      "description": "逐句講解心經經文，結合生活應用與修行要點。",
-      "youtubeId": "1ndFTfw_byo",
+      "title": "HD flower video | Amazing nature",
+      "description": "高畫質花卉與自然特寫，色彩飽和、細節清晰，呈現植物與季節之美。適合喜愛園藝、攝影與自然主題的觀眾慢慢欣賞。",
+      "youtubeId": "4N8oOj_aue8",
       "coverImage": ""
     },
     "related": [
       {
         "id": "1",
-        "title": "影片A",
+        "title": "Sea waves & beach drone video",
         "coverImage": "",
-        "youtubeId": "JrCSzAr2UPE"
+        "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "影片B",
+        "title": "Sunrise video",
         "coverImage": "",
-        "youtubeId": "mcVUxwXSkzA"
+        "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "影片C",
+        "title": "Sahara Desert & Dubai Desert",
         "coverImage": "",
-        "youtubeId": "4iBWD4oTEog"
+        "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "5",
-        "title": "影片E",
+        "title": "FROM EARTH TO SPACE",
         "coverImage": "",
-        "youtubeId": "YAVNRIHoX2I"
+        "youtubeId": "oe70Uhjc_F4"
       }
     ]
   },
@@ -147,35 +147,35 @@
     "status": true,
     "video": {
       "id": "5",
-      "title": "影片E",
-      "description": "擷取金剛經核心段落，說明空性與般若的意涵。",
-      "youtubeId": "YAVNRIHoX2I",
+      "title": "FROM EARTH TO SPACE",
+      "description": "從地表景觀一路延伸到太空視角，呈現地球曲線、大氣與星際意象的對比。適合對科學、天文與紀錄風格影像有興趣的觀眾。",
+      "youtubeId": "oe70Uhjc_F4",
       "coverImage": ""
     },
     "related": [
       {
         "id": "1",
-        "title": "影片A",
+        "title": "Sea waves & beach drone video",
         "coverImage": "",
-        "youtubeId": "JrCSzAr2UPE"
+        "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "影片B",
+        "title": "Sunrise video",
         "coverImage": "",
-        "youtubeId": "mcVUxwXSkzA"
+        "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "影片C",
+        "title": "Sahara Desert & Dubai Desert",
         "coverImage": "",
-        "youtubeId": "4iBWD4oTEog"
+        "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "影片D",
+        "title": "HD flower video | Amazing nature",
         "coverImage": "",
-        "youtubeId": "1ndFTfw_byo"
+        "youtubeId": "4N8oOj_aue8"
       }
     ]
   },
@@ -183,35 +183,35 @@
     "status": true,
     "video": {
       "id": "6",
-      "title": "影片F",
-      "description": "整理初學者在修行與靜坐時常有的疑問，並給予簡要說明。",
-      "youtubeId": "ZVCrq08QKKA",
+      "title": "THE FAMOUS WATERFALLS IN THE WORLD",
+      "description": "集結世界各地知名瀑布片段，水勢、霧氣與自然聲景兼具。適合喜歡山水與戶外風景的觀眾，感受水流與地形的震撼力。",
+      "youtubeId": "HccqokXN2n8",
       "coverImage": ""
     },
     "related": [
       {
         "id": "1",
-        "title": "影片A",
+        "title": "Sea waves & beach drone video",
         "coverImage": "",
-        "youtubeId": "JrCSzAr2UPE"
+        "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "影片B",
+        "title": "Sunrise video",
         "coverImage": "",
-        "youtubeId": "mcVUxwXSkzA"
+        "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "影片C",
+        "title": "Sahara Desert & Dubai Desert",
         "coverImage": "",
-        "youtubeId": "4iBWD4oTEog"
+        "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "影片D",
+        "title": "HD flower video | Amazing nature",
         "coverImage": "",
-        "youtubeId": "1ndFTfw_byo"
+        "youtubeId": "4N8oOj_aue8"
       }
     ]
   }

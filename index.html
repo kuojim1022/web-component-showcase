@@ -3,47 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YDM 測試首頁</title>
+    <title>元件展示</title>
     <link rel="stylesheet" href="dist/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <div class="">
-      <h1 style="margin: 40px 0; text-align: center">YDM測試首頁</h1>
-
-      <div
-        style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 24px;
-          margin-top: 48px;
-        "
-      >
-        <a
-          href="src/pages/book.html"
-          class="book-btn"
-          style="
-            min-width: 240px;
-            text-align: center;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-          "
-        >
-          <i class="far fa-book"></i> 1. YDM經書測試
-        </a>
-        <a
-          href="src/pages/video.html"
-          class="book-btn"
-          style="
-            min-width: 240px;
-            text-align: center;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-          "
-        >
-          <i class="far fa-play-circle"></i> 2. YDM影片測試
-        </a>
-      </div>
-    </div>
+    <main class="main-container index-page">
+      <h1 class="title">元件展示</h1>
+      <nav class="nav" aria-label="元件展示選單">
+        <ul class="list">
+          <li class="list-item book-btn">
+            <a href="src/pages/book.html" class="link">
+              <i class="fa-solid fa-file-pdf link__icon" aria-hidden="true"></i>
+              <span class="link__text">PDF 閱讀器展示</span>
+            </a>
+          </li>
+          <li class="list-item video-btn">
+            <a href="src/pages/video.html" class="link">
+              <i class="fa-brands fa-youtube link__icon" aria-hidden="true"></i>
+              <span class="link__text">YouTube 彈窗展示</span>
+            </a>
+          </li>
+          <li class="list-item music-btn">
+            <a href="src/pages/music.html" class="link">
+              <i class="fa-solid fa-music link__icon" aria-hidden="true"></i>
+              <span class="link__text">音樂播放器展示</span>
+            </a>
+          </li>
+          <li class="list-item marquee-btn">
+            <a href="src/pages/marquee.html" class="link">
+              <i class="fa-solid fa-arrow-right-arrow-left link__icon" aria-hidden="true"></i>
+              <span class="link__text">跑馬燈展示</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </main>
   </body>
 </html>

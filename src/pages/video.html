@@ -3,19 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YDM 影片測試</title>
+    <title>YouTube 彈窗展示</title>
     <link rel="stylesheet" href="../../dist/css/main.css" />
   </head>
   <body>
-    <div class="">
-      <h1 style="margin: 40px 0; text-align: center">YDM影片測試</h1>
-      <p style="text-align: center">
+    <div class="main-container video-page">
+      <h1 class="title">YouTube 彈窗展示</h1>
+      <p class="base-button-purple">
         <a href="../../index.html">← 返回首頁</a>
       </p>
-
-      <youtube-modal
-        data-url="../../youtube-modal/src/data/video-details.json"
-      ></youtube-modal>
 
       <div class="library-main-video-section-content">
         <div class="library-video-section-list">
@@ -35,6 +31,8 @@
         </div>
       </div>
     </div>
+
+    <youtube-modal data-url="../data/video-details.json"></youtube-modal>
 
     <!-- Handlebars 模板：影片列表 -->
     <script id="video-item-template" type="text/x-handlebars-template">
@@ -56,7 +54,10 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
-    <script type="module" src="../../youtube-modal/src/index.js"></script>
+    <script
+      type="module"
+      src="../../components/youtube-modal/src/index.js"
+    ></script>
     <script src="../js/video.js"></script>
   </body>
 </html>

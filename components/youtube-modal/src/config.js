@@ -2,7 +2,7 @@ export const CONFIG = {
   SHOW_TITLE: true, // 是否顯示影片標題
   SHOW_DESCRIPTION: true, // 是否顯示影片描述（空描述會自動隱藏）
   SHOW_RELATED_DEFAULT: true, // 是否預設顯示相關影片
-  PLAYER_TYPE: "iframe", // 播放器類型：'lite-youtube' | 'iframe' | 'youtube-iframe-api'
+  PLAYER_TYPE: "lite-youtube", // 播放器類型：'lite-youtube' | 'iframe' | 'youtube-iframe-api'
 };
 
 export const VALID_PLAYER_TYPES = [
