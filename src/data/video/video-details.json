@@ -3,7 +3,7 @@
     "status": true,
     "video": {
       "id": "1",
-      "title": "Sea waves & beach drone video",
+      "title": "海浪與海灘空拍影片",
       "description": "以空拍視角呈現海岸線與浪花，藍海與沙灘交錯，節奏舒緩。適合作為放鬆、專注或背景影音，感受海風與潮汐的寧靜氛圍。",
       "youtubeId": "6stlCkUDG_s",
       "coverImage": ""
@@ -11,25 +11,25 @@
     "related": [
       {
         "id": "2",
-        "title": "Sunrise video",
+        "title": "日出景色影片",
         "coverImage": "",
         "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "Sahara Desert & Dubai Desert",
+        "title": "撒哈拉與杜拜沙漠風景",
         "coverImage": "",
         "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "HD flower video | Amazing nature",
+        "title": "高畫質花卉與自然風景",
         "coverImage": "",
         "youtubeId": "4N8oOj_aue8"
       },
       {
         "id": "5",
-        "title": "FROM EARTH TO SPACE",
+        "title": "從地球到太空",
         "coverImage": "",
         "youtubeId": "oe70Uhjc_F4"
       }
@@ -39,7 +39,7 @@
     "status": true,
     "video": {
       "id": "2",
-      "title": "Sunrise video",
+      "title": "日出景色影片",
       "description": "捕捉日出時分的光影變化，從微亮到天色漸明，色溫柔和。適合早晨觀賞或搭配輕音樂，開啟平靜的一天。",
       "youtubeId": "gsnqXt7d1mU",
       "coverImage": ""
@@ -47,25 +47,25 @@
     "related": [
       {
         "id": "1",
-        "title": "Sea waves & beach drone video",
+        "title": "海浪與海灘空拍影片",
         "coverImage": "",
         "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "3",
-        "title": "Sahara Desert & Dubai Desert",
+        "title": "撒哈拉與杜拜沙漠風景",
         "coverImage": "",
         "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "HD flower video | Amazing nature",
+        "title": "高畫質花卉與自然風景",
         "coverImage": "",
         "youtubeId": "4N8oOj_aue8"
       },
       {
         "id": "5",
-        "title": "FROM EARTH TO SPACE",
+        "title": "從地球到太空",
         "coverImage": "",
         "youtubeId": "oe70Uhjc_F4"
       }
@@ -75,7 +75,7 @@
     "status": true,
     "video": {
       "id": "3",
-      "title": "Sahara Desert & Dubai Desert",
+      "title": "撒哈拉與杜拜沙漠風景",
       "description": "結合撒哈拉與杜拜周邊沙漠景觀，廣闊沙丘、光影與地平線層次分明。適合欣賞地貌與旅行風格畫面，感受乾燥地帶的壯闊與寂靜。",
       "youtubeId": "eg2g6FPsdLI",
       "coverImage": ""
@@ -83,25 +83,25 @@
     "related": [
       {
         "id": "1",
-        "title": "Sea waves & beach drone video",
+        "title": "海浪與海灘空拍影片",
         "coverImage": "",
         "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "Sunrise video",
+        "title": "日出景色影片",
         "coverImage": "",
         "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "4",
-        "title": "HD flower video | Amazing nature",
+        "title": "高畫質花卉與自然風景",
         "coverImage": "",
         "youtubeId": "4N8oOj_aue8"
       },
       {
         "id": "5",
-        "title": "FROM EARTH TO SPACE",
+        "title": "從地球到太空",
         "coverImage": "",
         "youtubeId": "oe70Uhjc_F4"
       }
@@ -111,7 +111,7 @@
     "status": true,
     "video": {
       "id": "4",
-      "title": "HD flower video | Amazing nature",
+      "title": "高畫質花卉與自然風景",
       "description": "高畫質花卉與自然特寫，色彩飽和、細節清晰，呈現植物與季節之美。適合喜愛園藝、攝影與自然主題的觀眾慢慢欣賞。",
       "youtubeId": "4N8oOj_aue8",
       "coverImage": ""
@@ -119,25 +119,25 @@
     "related": [
       {
         "id": "1",
-        "title": "Sea waves & beach drone video",
+        "title": "海浪與海灘空拍影片",
         "coverImage": "",
         "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "Sunrise video",
+        "title": "日出景色影片",
         "coverImage": "",
         "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "Sahara Desert & Dubai Desert",
+        "title": "撒哈拉與杜拜沙漠風景",
         "coverImage": "",
         "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "5",
-        "title": "FROM EARTH TO SPACE",
+        "title": "從地球到太空",
         "coverImage": "",
         "youtubeId": "oe70Uhjc_F4"
       }
@@ -147,7 +147,7 @@
     "status": true,
     "video": {
       "id": "5",
-      "title": "FROM EARTH TO SPACE",
+      "title": "從地球到太空",
       "description": "從地表景觀一路延伸到太空視角，呈現地球曲線、大氣與星際意象的對比。適合對科學、天文與紀錄風格影像有興趣的觀眾。",
       "youtubeId": "oe70Uhjc_F4",
       "coverImage": ""
@@ -155,25 +155,25 @@
     "related": [
       {
         "id": "1",
-        "title": "Sea waves & beach drone video",
+        "title": "海浪與海灘空拍影片",
         "coverImage": "",
         "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "Sunrise video",
+        "title": "日出景色影片",
         "coverImage": "",
         "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "Sahara Desert & Dubai Desert",
+        "title": "撒哈拉與杜拜沙漠風景",
         "coverImage": "",
         "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "HD flower video | Amazing nature",
+        "title": "高畫質花卉與自然風景",
         "coverImage": "",
         "youtubeId": "4N8oOj_aue8"
       }
@@ -183,7 +183,7 @@
     "status": true,
     "video": {
       "id": "6",
-      "title": "THE FAMOUS WATERFALLS IN THE WORLD",
+      "title": "世界著名瀑布精選",
       "description": "集結世界各地知名瀑布片段，水勢、霧氣與自然聲景兼具。適合喜歡山水與戶外風景的觀眾，感受水流與地形的震撼力。",
       "youtubeId": "HccqokXN2n8",
       "coverImage": ""
@@ -191,25 +191,25 @@
     "related": [
       {
         "id": "1",
-        "title": "Sea waves & beach drone video",
+        "title": "海浪與海灘空拍影片",
         "coverImage": "",
         "youtubeId": "6stlCkUDG_s"
       },
       {
         "id": "2",
-        "title": "Sunrise video",
+        "title": "日出景色影片",
         "coverImage": "",
         "youtubeId": "gsnqXt7d1mU"
       },
       {
         "id": "3",
-        "title": "Sahara Desert & Dubai Desert",
+        "title": "撒哈拉與杜拜沙漠風景",
         "coverImage": "",
         "youtubeId": "eg2g6FPsdLI"
       },
       {
         "id": "4",
-        "title": "HD flower video | Amazing nature",
+        "title": "高畫質花卉與自然風景",
         "coverImage": "",
         "youtubeId": "4N8oOj_aue8"
       }

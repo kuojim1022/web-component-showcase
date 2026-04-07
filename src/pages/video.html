@@ -7,13 +7,53 @@
     <link rel="stylesheet" href="../../dist/css/main.css" />
   </head>
   <body>
-    <div class="main-container video-page">
-      <h1 class="title">YouTube 彈窗展示</h1>
-      <p class="base-button-purple">
-        <a href="../../index.html">← 返回首頁</a>
-      </p>
+    <main class="main-container video-page">
+      <header class="header">
+        <h1 class="title">YouTube 彈窗展示</h1>
+        <p class="base-button-purple">
+          <a href="../../index.html">← 返回首頁</a>
+        </p>
+      </header>
 
-      <div class="library-main-video-section-content">
+      <section class="video-content-intro">
+        <h2 class="video-content-intro__title">頁面說明</h2>
+        <p class="video-content-intro__text">
+          本頁以 YouTube Modal Web Component
+          為核心展示目標。使用者點擊影片卡片後，會由元件接手彈窗開啟、資料載入與播放器呈現流程。列表載入與分頁按鈕屬於頁面層互動，用於提供更完整的操作情境。
+        </p>
+      </section>
+
+      <section class="spec-container" aria-label="技術規格摘要">
+        <h2 class="video-spec__title">技術規格摘要</h2>
+        <ul class="video-spec__list">
+          <li>
+            <strong>核心能力：</strong>點擊卡片後，以 Web Component 彈窗播放
+            YouTube 影片。
+          </li>
+          <li>
+            <strong>資料來源模式：</strong>支援 API（endpoint）或靜態
+            JSON（data-url）。
+          </li>
+          <li>
+            <strong>功能開關：</strong
+            >可控制標題、描述、相關影片顯示與播放器參數。
+          </li>
+          <li>
+            <strong>整合方式：</strong
+            >可嵌入任意頁面，列表層與彈窗層分離，便於重用。
+          </li>
+          <li>
+            <strong>播放器彈性：</strong>可依需求選擇不同播放器類型（如
+            lite-youtube、iframe）。
+          </li>
+          <li>
+            <strong>效能導向：</strong
+            >透過可控的相關影片顯示與延後載入策略，降低初始負擔並優化體驗。
+          </li>
+        </ul>
+      </section>
+
+      <section class="library-main-video-section-content">
         <div class="library-video-section-list">
           <div id="video-list-container" class="library-video-grid">
             <!-- 影片項目由 API getVideoList 載入後渲染 -->
@@ -29,19 +69,19 @@
             </a>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
 
-    <youtube-modal data-url="../data/video-details.json"></youtube-modal>
+    <youtube-modal data-url="../data/video/video-details.json"></youtube-modal>
 
     <!-- Handlebars 模板：影片列表 -->
     <script id="video-item-template" type="text/x-handlebars-template">
       {{#each videos}}
       <div class="video-item" data-id="{{id}}">
         <div class="video-item-cover">
-          <img src="{{#if coverImage}}{{coverImage}}{{else}}/web/res/zh_TW/MSITE_3/images/default.jpg{{/if}}"
+          <img src="{{#if coverImage}}{{coverImage}}{{else}}../images/default.jpg{{/if}}"
               alt="{{title}}"
-              onerror="this.onerror=null;this.src='/web/res/zh_TW/MSITE_3/images/default.jpg';">
+              onerror="this.onerror=null;this.src='../images/default.jpg';">
           <div class="video-item-play-icon">
             <i class="fa fa-play"></i>
           </div>

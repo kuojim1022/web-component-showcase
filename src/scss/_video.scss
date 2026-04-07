@@ -10,6 +10,62 @@
   align-items: center;
 }
 
+.video-content-intro {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: $color-text-dark;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 1.6;
+    color: $color-text-gray;
+  }
+}
+
+.video-spec {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: $color-text-dark;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: $color-text-gray;
+    line-height: 1.6;
+    width: 100%;
+
+    strong {
+      font-weight: 600;
+      color: $color-text-dark;
+    }
+  }
+}
+
 // 影片測試列表頁
 .library-video-grid {
   display: grid;

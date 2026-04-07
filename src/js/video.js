@@ -1,5 +1,5 @@
 // 影片列表
-const VIDEO_LIST_URL = "../data/video-list.json";
+const VIDEO_LIST_URL = "../data/video/video-list.json";
 
 // 靜態 列表資料
 // ../data/video-list.json
