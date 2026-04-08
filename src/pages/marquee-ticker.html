@@ -14,32 +14,24 @@
   </head>
   <body>
     <main class="main-container marquee-ticker-page">
-      <h1 class="title">跑馬燈展示</h1>
-
-      <p class="base-button-purple">
-        <a href="../../index.html">← 返回首頁</a>
-      </p>
-
-      <section class="marquee-ticker-demo">
-        <article class="marquee-ticker-card">
-          <marquee-ticker
-            id="marquee-ticker"
-            direction="slide-left"
-            data-url="../data/marquee-ticker/marquee-ticker-items.json"
-          ></marquee-ticker>
-        </article>
-      </section>
+      <header class="header">
+        <h1 class="title">跑馬燈展示</h1>
+        <p class="base-button-purple">
+          <a href="../../index.html">← 返回首頁</a>
+        </p>
+      </header>
 
       <section class="marquee-ticker-intro">
-        <h2 class="marquee-ticker-intro__title">適用情境</h2>
+        <h2 class="marquee-ticker-intro__title">頁面說明</h2>
         <p class="marquee-ticker-intro__text">
-          適合用來展示全站公告、活動訊息或系統維護提醒，讓重要資訊以醒目的方式在頁面上持續曝光，不占用太多版面空間。
+          本頁以跑馬燈 Web Component
+          為核心展示目標：將多則公告以橫向輪播方式呈現，讓重要資訊在不佔版面的情況下持續曝光。適合用於全站公告、活動訊息與系統維護提醒等情境。
         </p>
       </section>
 
-      <section class="marquee-ticker-spec">
-        <h2 class="marquee-ticker-spec__title">技術規格摘要</h2>
-        <table class="marquee-ticker-spec__table">
+      <section class="spec-container max-width-1000" aria-label="重點摘要">
+        <h2 class="spec-container__title">重點摘要</h2>
+        <table class="spec-container__table">
           <tbody>
             <tr>
               <th scope="row">顯示方式</th>
@@ -69,6 +61,16 @@
             </tr>
           </tbody>
         </table>
+      </section>
+
+      <section class="marquee-ticker-demo">
+        <article class="marquee-ticker-card">
+          <marquee-ticker
+            id="marquee-ticker"
+            direction="slide-left"
+            data-url="../data/marquee-ticker/marquee-ticker-items.json"
+          ></marquee-ticker>
+        </article>
       </section>
 
       <button

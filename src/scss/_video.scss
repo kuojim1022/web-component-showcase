@@ -5,19 +5,21 @@
   box-sizing: border-box;
   min-height: 100vh;
   display: flex;
-  gap: 40px;
+  gap: 60px;
   flex-direction: column;
   align-items: center;
+  @include media-768 {
+    gap: 40px;
+  }
 }
 
 .video-content-intro {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
   color: $color-text-dark;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 
   &__title {
     margin: 0;
@@ -34,12 +36,16 @@
 
 .video-spec {
   max-width: 1000px;
+}
+
+.library-main-video-section-content {
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
+  gap: 20px;
 
   &__title {
     margin: 0;
@@ -47,35 +53,13 @@
     font-weight: 600;
     color: $color-text-dark;
   }
-
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    color: $color-text-gray;
-    line-height: 1.6;
-    width: 100%;
-
-    strong {
-      font-weight: 600;
-      color: $color-text-dark;
-    }
-  }
 }
 
-// 影片測試列表頁
 .library-video-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   margin: 0 auto;
-
-  @include media-992 {
-    grid-template-columns: repeat(3, 1fr);
-  }
 
   @include media-768 {
     grid-template-columns: repeat(2, 1fr);

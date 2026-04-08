@@ -6,8 +6,8 @@ const VIDEO_LIST_URL = "../data/video/video-list.json";
 // API 列表資料
 // https://mock.apidog.com/m1/1222159-1218189-default/api/libraryVideo/getVideoList
 
-const VIDEO_DETAIL_API_ENDPOINT =
-  "https://mock.apidog.com/m1/1222159-1218189-default/api/libraryVideo/getVideoDetail";
+// const VIDEO_DETAIL_API_ENDPOINT =
+//   "https://mock.apidog.com/m1/1222159-1218189-default/api/libraryVideo/getVideoDetail";
 
 async function loadVideoList() {
   const container = document.getElementById("video-list-container");

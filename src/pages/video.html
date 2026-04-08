@@ -23,51 +23,46 @@
         </p>
       </section>
 
-      <section class="spec-container" aria-label="技術規格摘要">
-        <h2 class="video-spec__title">技術規格摘要</h2>
-        <ul class="video-spec__list">
-          <li>
-            <strong>核心能力：</strong>點擊卡片後，以 Web Component 彈窗播放
-            YouTube 影片。
-          </li>
-          <li>
-            <strong>資料來源模式：</strong>支援 API（endpoint）或靜態
-            JSON（data-url）。
-          </li>
-          <li>
-            <strong>功能開關：</strong
-            >可控制標題、描述、相關影片顯示與播放器參數。
-          </li>
-          <li>
-            <strong>整合方式：</strong
-            >可嵌入任意頁面，列表層與彈窗層分離，便於重用。
-          </li>
-          <li>
-            <strong>播放器彈性：</strong>可依需求選擇不同播放器類型（如
-            lite-youtube、iframe）。
-          </li>
-          <li>
-            <strong>效能導向：</strong
-            >透過可控的相關影片顯示與延後載入策略，降低初始負擔並優化體驗。
-          </li>
-        </ul>
+      <section class="video-spec spec-container" aria-label="重點摘要">
+        <h2 class="spec-container__title">重點摘要</h2>
+        <table class="spec-container__table">
+          <tbody>
+            <tr>
+              <th scope="row">核心能力</th>
+              <td>點擊卡片後，以 Web Component 彈窗播放 YouTube 影片。</td>
+            </tr>
+            <tr>
+              <th scope="row">資料來源模式</th>
+              <td>
+                可從後端 API 即時取得影片資料，也可用本機或靜態檔當資料來源。
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">功能開關</th>
+              <td>可控制標題、描述、相關影片顯示與播放器參數。</td>
+            </tr>
+            <tr>
+              <th scope="row">播放器彈性</th>
+              <td>
+                可選擇不同播放器類型，在首屏效能（lite-youtube）、整合直覺度（iframe）與進階控制彈性（youtube-iframe-api）間取捨。
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">效能導向</th>
+              <td>
+                透過可控的相關影片顯示與延後載入策略，降低初始負擔並優化體驗。
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
-      <section class="library-main-video-section-content">
-        <div class="library-video-section-list">
-          <div id="video-list-container" class="library-video-grid">
-            <!-- 影片項目由 API getVideoList 載入後渲染 -->
-          </div>
-
-          <div class="load-more-container">
-            <a
-              id="load-more-video"
-              class="base-button-purple"
-              style="display: none"
-            >
-              載入更多 <i class="fa fa-refresh"></i>
-            </a>
-          </div>
+      <section
+        class="library-main-video-section-content"
+        aria-labelledby="video-demo-title"
+      >
+        <div id="video-list-container" class="library-video-grid">
+          <!-- 影片項目由 API getVideoList 載入後渲染 -->
         </div>
       </section>
     </main>

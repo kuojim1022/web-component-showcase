@@ -8,7 +8,10 @@ body {
 .main-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 80px 40px;
+  @include media-768 {
+    padding: 40px;
+  }
 }
 
 .header {
@@ -18,12 +21,21 @@ body {
   gap: 20px;
 }
 
+// 技術規格區塊
 .spec-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24px;
+  background: $color-bg-white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px $shadow-sm;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  align-items: flex-start;
 
   &__title {
+    margin: 0;
     font-size: 20px;
     font-weight: 600;
     color: $color-text-dark;
@@ -43,6 +55,10 @@ body {
       line-height: 1.6;
     }
 
+    td {
+      color: $color-text-gray;
+    }
+
     th {
       width: 120px;
       font-weight: 600;
@@ -57,6 +73,8 @@ body {
   }
 
   @include media-576 {
+    padding: 16px;
+
     &__table {
       font-size: 13px;
 
@@ -65,6 +83,12 @@ body {
       }
     }
   }
+}
+
+.max-width-1000 {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {

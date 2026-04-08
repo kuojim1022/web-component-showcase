@@ -6,6 +6,7 @@
 - [API Endpoint 設定](#api-endpoint-設定)
 - [靜態資料引用方式](#靜態資料引用方式)
 - [功能開關設定](#功能開關設定)
+- [播放器類型比較與選擇建議](#播放器類型比較與選擇建議)
 
 ---
 
@@ -99,6 +100,16 @@ export const CONFIG = {
 };
 ```
 
+### 在 HTML 標籤中設定
+
+```html
+<!-- 例：關閉相關影片 -->
+<youtube-modal
+  endpoint="/path/to/getVideoDetail"
+  show-related="false"
+></youtube-modal>
+```
+
 **PLAYER_VARS**
 
 ```javascript
@@ -114,12 +125,20 @@ export const PLAYER_VARS = {
 
 修改後重新載入頁面即可生效。
 
-### 在 HTML 標籤中設定
+---
 
-```html
-<!-- 例：關閉相關影片 -->
-<youtube-modal
-  endpoint="/path/to/getVideoDetail"
-  show-related="false"
-></youtube-modal>
-```
+## 播放器類型比較與選擇建議
+
+目前支援三種 `PLAYER_TYPE`：`lite-youtube`、`iframe`、`youtube-iframe-api`。
+
+### 差異與優勢
+
+- `lite-youtube`：最輕量、首屏負擔最低；適合重視載入速度與大量卡片列表。取捨是依賴外部套件資產（CDN 腳本與樣式）。
+- `iframe`：原生、實作與除錯最直覺，相容性高；適合一般需求快速上線。取捨是互動控制能力較 API 版本少。
+- `youtube-iframe-api`：可程式化控制最完整（如更進階事件與播放器操作）；適合需要深度客製互動。取捨是整合複雜度與維護成本較高。
+
+### 如何選
+
+1. 以效能優先、內容列表多：選 `lite-youtube`
+2. 需求單純、要穩定快速落地：選 `iframe`
+3. 需要進階控制與事件整合：選 `youtube-iframe-api`
