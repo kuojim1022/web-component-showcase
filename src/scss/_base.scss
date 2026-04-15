@@ -31,8 +31,30 @@ body {
   gap: 20px;
 }
 
-// 技術規格區塊
-.spec-container {
+// 頁面說明
+.page-intro {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $color-text-dark;
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 1.6;
+    color: $color-text-gray;
+  }
+}
+
+// 重點摘要
+.highlights {
   box-sizing: border-box;
   width: 100%;
   padding: 24px;

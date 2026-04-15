@@ -21,17 +21,17 @@
         </p>
       </header>
 
-      <section class="video-content-intro">
-        <h2 class="video-content-intro__title">頁面說明</h2>
-        <p class="video-content-intro__text">
+      <section class="page-intro">
+        <h2 class="page-intro__title">頁面說明</h2>
+        <p class="page-intro__text">
           本頁以 YouTube Modal Web Component
           為核心展示目標。使用者點擊影片卡片後，會由元件接手彈窗開啟、資料載入與播放器呈現流程。列表載入與分頁按鈕屬於頁面層互動，用於提供更完整的操作情境。
         </p>
       </section>
 
-      <section class="video-spec spec-container" aria-label="重點摘要">
-        <h2 class="spec-container__title">重點摘要</h2>
-        <table class="spec-container__table">
+      <section class="highlights max-width-1000" aria-label="重點摘要">
+        <h2 class="highlights__title">重點摘要</h2>
+        <table class="highlights__table">
           <tbody>
             <tr>
               <th scope="row">核心能力</th>
@@ -63,10 +63,7 @@
         </table>
       </section>
 
-      <section
-        class="library-main-video-section-content"
-        aria-labelledby="video-demo-title"
-      >
+      <section aria-labelledby="video-demo-title">
         <div id="video-list-container" class="library-video-grid">
           <!-- 影片項目由 API getVideoList 載入後渲染 -->
         </div>
