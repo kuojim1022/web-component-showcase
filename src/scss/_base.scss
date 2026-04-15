@@ -66,6 +66,11 @@ body {
   gap: 16px;
   align-items: flex-start;
 
+  a {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+
   &__title {
     margin: 0;
     font-size: 20px;

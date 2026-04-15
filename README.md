@@ -1,11 +1,6 @@
-# YDM 測試專案
+# Web Component 元件展示網站
 
-本專案包含兩個測試項目：
-
-1. **經書測試** — 響應式書架版面、API 分頁載入（載入更多）
-2. **影片測試** — YouTube 影片列表、`youtube-modal` Web Component 彈窗
-
-入口為根目錄 `index.html`，可由此進入上述兩個頁面。
+本專案為 **Web Components** 的展示站：首頁串連各元件示範頁，方便檢視。
 
 ## 開發環境
 
@@ -26,27 +21,10 @@
 
 會監聽 `src/scss/` 並即時編譯至 `dist/css/main.css`。編譯後請重整瀏覽器；`Ctrl+C` 可停止監聽。
 
-### 經書測試 RWD 斷點
+## 素材與使用聲明
 
-書架欄數依視窗寬度變化：
+本專案僅作技術展示，素材均採公有領域資源且不具商業用途。
 
-- `≤ 480px`：2 欄
-- `≤ 576px`：3 欄
-- `≤ 768px`：4 欄
-- `≤ 992px`：5 欄
-- `> 992px`：6 欄
-
-
-## 📄 授權
-
-本專案的所有圖片資源（包含書本封面圖片、木頭材質圖片等）均受版權保護，**嚴禁任何形式的下載、複製、轉載或商業使用**。
-
-未經授權，不得：
-- 下載或儲存任何圖片檔案
-- 複製圖片內容
-- 將圖片用於其他專案或商業用途
-- 分享或轉發圖片資源
-
-如有使用需求，請聯繫專案維護者取得授權。
+This project is for technical demonstration only; all media assets are sourced from the public domain and are strictly for non-commercial use.
 
 ---
