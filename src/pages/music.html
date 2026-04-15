@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <main class="main-container marquee-ticker-page">
+    <main class="main-container page">
       <header class="header">
         <h1 class="title">音樂播放器展示</h1>
         <p class="base-button-purple">
@@ -25,7 +25,7 @@
         <h2 class="marquee-ticker-intro__title">頁面說明</h2>
         <p class="marquee-ticker-intro__text">
           本頁以音樂播放器 Web Component
-          為核心展示目標：使用者點擊播放器後，會由元件接手音樂載入與播放流程。播放器呈現、音樂列表載入與分頁按鈕屬於頁面層互動，用於提供更完整的操作情境。
+          為展示核心。初次進入會出現「請點擊任意處」遮罩，並以靜音開始播放，再引導是否開啟音量，降低進站即大聲播放的風險。支援循環、隨機與順序播放，也可從清單選曲；清單與播放邏輯由元件內處理，頁面只需提供資料來源。
         </p>
       </section>
 
@@ -34,29 +34,28 @@
         <table class="spec-container__table">
           <tbody>
             <tr>
-              <th scope="row">顯示方式</th>
+              <th scope="row">核心能力</th>
               <td>
-                使用 CSS
-                動畫與位移效果實作平滑橫向滾動，依內容與容器寬度自動補齊重複項目，避免出現空白斷點。
+                整合歌單管理、播放控制（播放/暫停、切換、模式切換）與進度/音量調節。具備高度封裝性與樣式隔離，無需依賴第三方框架即可獨立運行。
               </td>
             </tr>
             <tr>
               <th scope="row">高度客製</th>
               <td>
-                可以調整滾動速度、每條訊息之間的距離，以及上下留白，並支援從左往右或從右往左兩種滾動方向。
+                支援全方位樣式自定義，包括圖示選用、清單配色及 UI
+                佈局調整。可輕易適應不同品牌視覺與設計需求。
               </td>
             </tr>
             <tr>
-              <th scope="row">響應設計</th>
+              <th scope="row">操作彈性</th>
               <td>
-                在視窗大小或容器寬度變化時，會自動重新計算需要的內容長度與動畫時間，維持連續且自然的滾動節奏。
+                提供開發者高度彈性的設定，可預設初始音量、播放模式（循環、隨機）等行為，滿足多樣化的應用情境。
               </td>
             </tr>
             <tr>
-              <th scope="row">封裝相容</th>
+              <th scope="row">資源授權</th>
               <td>
-                採用 Web Components 標準與 Shadow DOM
-                封裝樣式與結構，不依賴第三方套件，支援現代主流瀏覽器。
+                示範用音樂與封面來源為公有領域素材，符合作品展示與學習用途。
               </td>
             </tr>
           </tbody>
@@ -64,15 +63,13 @@
       </section>
 
       <!-- 音樂播放器區域 -->
-      <section class="section-container music-section">
-        <div class="main-container music-container">
-          <music-player
-            data-url="../data/music/music-list.json"
-            default-volume="0.7"
-            default-repeat="false"
-            default-shuffle="false"
-          ></music-player>
-        </div>
+      <section class="music-section">
+        <music-player
+          data-url="../data/music/music-list.json"
+          default-volume="0.7"
+          default-repeat="false"
+          default-shuffle="false"
+        ></music-player>
       </section>
 
       <button
