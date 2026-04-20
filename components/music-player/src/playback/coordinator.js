@@ -6,13 +6,22 @@ export class PlaybackCoordinator {
   #uiRenderer;
   #state;
   #options;
+  #uiInteractions;
 
-  constructor({ playlist, audioEngine, uiRenderer, state, options }) {
+  constructor({
+    playlist,
+    audioEngine,
+    uiRenderer,
+    state,
+    options,
+    uiInteractions,
+  }) {
     this.#playlist = playlist;
     this.#audioEngine = audioEngine;
     this.#uiRenderer = uiRenderer;
     this.#state = state;
     this.#options = options;
+    this.#uiInteractions = uiInteractions;
   }
 
   setMusicInfo(id) {
@@ -27,7 +36,7 @@ export class PlaybackCoordinator {
 
     this.#audioEngine.load(resolveUserDataPath(music.src));
     this.#uiRenderer.updateCurrentTrack(music);
-    this.#uiRenderer.highlightTrack(String(music.id));
+    this.#uiInteractions?.highlightCurrentTrack(music.id);
   }
 
   tryPlayAudio() {
@@ -75,47 +84,35 @@ export class PlaybackCoordinator {
   toggleMute() {
     if (this.#state.isMuted) {
       this.unmute(false);
-      this.#uiRenderer.hideMutePopup();
+      this.#uiInteractions?.hideMutePrompt();
     } else {
       this.#state.savedVolume = this.#state.currentVolume;
       this.#audioEngine.element.muted = true;
       this.#state.isMuted = true;
       this.#uiRenderer.updateMute(true);
-      this.#uiRenderer.hideMutePopup();
+      this.#uiInteractions?.hideMutePrompt();
     }
   }
 
-  handleInteractionClick(defaultId) {
+  startPlaybackByDefault(defaultId) {
     this.#audioEngine.initWebAudio(this.#state.currentVolume);
 
     const audio = this.#audioEngine.element;
-    if (
-      String(this.#state.currentMusicId) === String(defaultId) &&
-      audio.src
-    ) {
+    if (String(this.#state.currentMusicId) === String(defaultId) && audio.src) {
       this.tryPlayAudio();
     } else {
       this.playMusic(defaultId);
     }
+  }
 
+  restoreUnmutedIfNeeded() {
     if (sessionStorage.getItem("musicPlayerUnmuted") === "true") {
       this.unmute(false);
     }
+  }
 
-    this.#uiRenderer.hideInteractionPrompt();
-
-    if (sessionStorage.getItem("musicPlayerUnmuted") !== "true") {
-      setTimeout(() => {
-        this.#uiRenderer.showMutePopup(
-          this.#options.customIcons,
-          () => {
-            this.unmute(true);
-            this.#uiRenderer.hideMutePopup();
-          },
-          () => this.#uiRenderer.hideMutePopup(),
-        );
-      }, 500);
-    }
+  unmuteAndTryPlay() {
+    this.unmute(true);
   }
 
   updateProgress = () => {
@@ -191,7 +188,7 @@ export class PlaybackCoordinator {
     this.#uiRenderer.updateVolume(p);
     if (this.#state.isMuted) {
       this.unmute(false);
-      this.#uiRenderer.hideMutePopup();
+      this.#uiInteractions?.hideMutePrompt();
     }
     this.#state.savedVolume = p;
   }

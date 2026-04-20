@@ -1,10 +1,3 @@
-/**
- * 為 element 掛上 Pointer Events 拖曳邏輯。
- * 每次呼叫各自維護一個獨立的 active 旗標，不污染外部 state。
- *
- * @param {HTMLElement} element  - 接受拖曳的元素
- * @param {(e: PointerEvent) => void} onUpdate - 拖曳過程（含 pointerdown）持續觸發
- */
 export function setupDrag(element, onUpdate) {
   if (!element) return;
 

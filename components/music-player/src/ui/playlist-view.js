@@ -1,9 +1,25 @@
 import { getIconUrl } from "../utils/path-resolver.js";
 import { formatTime } from "../utils/format.js";
 
-/**
- * 產生單筆音樂清單項目 HTML。
- */
+export function buildPlaylistTemplate(customIcons = {}) {
+  const iconUrl = getIconUrl("icon-music.svg", customIcons);
+  return `
+    <div class="music-list-container">
+      <div class="list-title-container">
+        <img src="${iconUrl}" alt="音樂" class="list-title-icon">
+        <h3 class="list-title">音樂清單</h3>
+      </div>
+      <div class="music-list" id="music-list"></div>
+    </div>
+  `;
+}
+
+export function initPlaylistElements(shadowRoot) {
+  return {
+    musicListContainer: shadowRoot.getElementById("music-list"),
+  };
+}
+
 function buildMusicItemHTML(music, iconUrl, playIconUrl) {
   const hasImg = !!music.image;
   const coverHTML = hasImg
@@ -35,12 +51,6 @@ function buildMusicItemHTML(music, iconUrl, playIconUrl) {
   `;
 }
 
-/**
- * 將音樂清單渲染到容器中。
- * @param {HTMLElement|null} container
- * @param {Array} musicList
- * @param {Object} customIcons
- */
 export function render(container, musicList, customIcons = {}) {
   if (!container) return;
 
@@ -60,19 +70,4 @@ export function render(container, musicList, customIcons = {}) {
   container.innerHTML = musicList
     .map((m) => buildMusicItemHTML(m, iconUrl, playIconUrl))
     .join("");
-}
-
-/**
- * 更新清單中播放中項目的 playing class。
- * @param {ShadowRoot} shadowRoot
- * @param {string} currentId
- */
-export function highlightItem(shadowRoot, currentId) {
-  if (!shadowRoot) return;
-  shadowRoot.querySelectorAll(".music-item").forEach((item) => {
-    item.classList.toggle(
-      "playing",
-      String(item.getAttribute("data-id")) === String(currentId),
-    );
-  });
 }

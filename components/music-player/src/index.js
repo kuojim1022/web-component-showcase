@@ -3,24 +3,11 @@ import { Controller } from "./controller/index.js";
 import { UIRenderer } from "./ui/index.js";
 
 const isMobileDevice = () => CONFIG.MOBILE_REGEX.test(navigator.userAgent);
-
-/**
- * <music-player> Web Component（ES Module 版本）
- *
- * 支援屬性：
- *   data-endpoint    後端 API URL（優先於 data-url）
- *   data-url         靜態 JSON 檔案 URL
- *   default-volume   預設音量，0~1，預設 0.7
- *   default-repeat   預設單曲循環，"true"/"false"，預設 false
- *   default-shuffle  預設隨機播放，"true"/"false"，預設 false
- *   custom-icons     自訂圖示 JSON 字串，例如 '{"icon-play":"url"}'
- *
- * 公開 API：
- *   setMusicData(array)  — 以程式動態替換清單
- */
+let mobileClassOwnerCount = 0;
 class MusicPlayer extends HTMLElement {
   #controller = null;
   #initialized = false;
+  #ownsMobileClass = false;
 
   constructor() {
     super();
@@ -38,17 +25,17 @@ class MusicPlayer extends HTMLElement {
       const p = parseFloat(v);
       return isNaN(p) ? CONFIG.DEFAULT_VOLUME : Math.max(0, Math.min(1, p));
     };
-    const parseBool = (v, d) => {
+    const parseBooleanAttribute = (v, d) => {
       if (!v) return d;
       return ["true", "1", "yes", "on"].includes(String(v).toLowerCase());
     };
 
     const defaultVolume = parseVolume(getAttr("default-volume"));
-    const defaultRepeat = parseBool(
+    const defaultRepeat = parseBooleanAttribute(
       getAttr("default-repeat"),
       CONFIG.DEFAULT_REPEAT,
     );
-    const defaultShuffle = parseBool(
+    const defaultShuffle = parseBooleanAttribute(
       getAttr("default-shuffle"),
       CONFIG.DEFAULT_SHUFFLE,
     );
@@ -71,7 +58,11 @@ class MusicPlayer extends HTMLElement {
       : "";
 
     // ── 行動裝置偵測 ──────────────────────────────────────
-    if (isMobileDevice()) document.body.classList.add("mobile-device");
+    if (isMobileDevice()) {
+      mobileClassOwnerCount += 1;
+      this.#ownsMobileClass = true;
+      document.body.classList.add("mobile-device");
+    }
 
     // ── 掛載 UI ──────────────────────────────────────────
     const uiRenderer = new UIRenderer();
@@ -95,13 +86,16 @@ class MusicPlayer extends HTMLElement {
   disconnectedCallback() {
     this.#controller?.destroy();
     this.#controller = null;
+    if (this.#ownsMobileClass) {
+      mobileClassOwnerCount = Math.max(0, mobileClassOwnerCount - 1);
+      this.#ownsMobileClass = false;
+      if (mobileClassOwnerCount === 0) {
+        document.body.classList.remove("mobile-device");
+      }
+    }
     this.#initialized = false;
   }
 
-  /**
-   * 以程式替換音樂清單（不重新 mount UI）。
-   * @param {Array} data
-   */
   setMusicData(data) {
     this.#controller?.setMusicData(data);
   }

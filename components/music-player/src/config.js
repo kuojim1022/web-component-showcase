@@ -1,33 +1,20 @@
-/**
- * 元件預設配置。
- * 開發者可在 HTML 屬性層覆寫這些值：
- *   default-volume, default-repeat, default-shuffle, custom-icons（JSON 字串）
- */
 export const CONFIG = {
-  DEFAULT_VOLUME: 0.7,
-  DEFAULT_REPEAT: false,
-  DEFAULT_SHUFFLE: false,
-
-  /** audio.readyState 門檻，達到後才嘗試 play() */
-  AUDIO_READY_STATE: 3,
-
-  /** 行動裝置判斷正則 */
+  DEFAULT_VOLUME: 0.7, // 預設音量
+  DEFAULT_REPEAT: false, // 預設重複模式
+  DEFAULT_SHUFFLE: false, // 預設隨機模式
+  AUDIO_READY_STATE: 3, // audio.readyState門檻，達到後才嘗試play()
   MOBILE_REGEX:
     /iPhone|iPad|iPod|Android|Mobile|BlackBerry|IEMobile|Opera Mini/i,
 
-  /**
-   * 元件內建圖示檔名對應表（相對於 src/assets/images/）。
-   * 可透過 custom-icons 屬性覆寫部分或全部圖示。
-   */
   DEFAULT_ICONS: {
-    "icon-music": "icon-music.svg",
-    "icon-repeat": "icon-repeat.svg",
-    "icon-prev": "icon-prev.svg",
-    "icon-play": "icon-play.svg",
-    "icon-pause": "icon-pause.svg",
-    "icon-next": "icon-next.svg",
-    "icon-shuffle": "icon-shuffle.svg",
-    "icon-volume": "icon-volume.svg",
-    "icon-volume-mute": "icon-volume-mute.svg",
+    "icon-music": "icon-music.svg", // 音樂圖示
+    "icon-repeat": "icon-repeat.svg", // 單曲循環圖示
+    "icon-prev": "icon-prev.svg", // 上一首圖示
+    "icon-play": "icon-play.svg", // 播放圖示
+    "icon-pause": "icon-pause.svg", // 暫停圖示
+    "icon-next": "icon-next.svg", // 下一首圖示
+    "icon-shuffle": "icon-shuffle.svg", // 隨機播放圖示
+    "icon-volume": "icon-volume.svg", // 音量圖示
+    "icon-volume-mute": "icon-volume-mute.svg", // 靜音圖示
   },
 };

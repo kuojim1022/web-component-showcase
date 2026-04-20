@@ -1,57 +1,60 @@
-import { buildTemplate, initElements } from "./player-shell.js";
-import { render as renderPlaylist, highlightItem } from "./playlist-view.js";
-import { PortalManager } from "./portal-manager.js";
+import {
+  buildNowPlayingTemplate,
+  initNowPlayingElements,
+} from "./now-playing-view.js";
+import {
+  buildPlaylistTemplate,
+  initPlaylistElements,
+  render as renderPlaylist,
+} from "./playlist-view.js";
 import { loadCss } from "../utils/css-loader.js";
 import { getIconUrl } from "../utils/path-resolver.js";
 import { formatTime } from "../utils/format.js";
 
-/**
- * 負責 Shadow DOM 的掛載與所有 UI 狀態更新。
- * Controller 透過本類別的公開方法驅動畫面，不直接操作 DOM。
- */
 export class UIRenderer {
   #elements = null;
   #shadowRoot = null;
-  #portalManager = new PortalManager();
   #customIcons = {};
 
-  /** 取得 DOM 元素參考（由 Controller 掛載事件用）。 */
   get elements() {
     return this.#elements;
   }
 
-  /**
-   * 將 CSS + HTML 注入 shadowRoot，並初始化元素參考與 portal 樣式。
-   * @param {ShadowRoot} shadowRoot
-   * @param {Object} customIcons
-   */
   async mount(shadowRoot, customIcons = {}) {
     this.#shadowRoot = shadowRoot;
     this.#customIcons = customIcons;
 
-    const shellCssUrl = new URL("./styles/player-shell.css", import.meta.url)
-      .href;
-    const playlistCssUrl = new URL("./styles/playlist-view.css", import.meta.url)
-      .href;
-    const [shellCss, playlistCss] = await Promise.all([
-      loadCss(shellCssUrl),
+    const nowPlayingCssUrl = new URL(
+      "./styles/now-playing-view.css",
+      import.meta.url,
+    ).href;
+    const playlistCssUrl = new URL(
+      "./styles/playlist-view.css",
+      import.meta.url,
+    ).href;
+    const [nowPlayingCss, playlistCss] = await Promise.all([
+      loadCss(nowPlayingCssUrl),
       loadCss(playlistCssUrl),
     ]);
-    const css = `${shellCss}\n${playlistCss}`;
+    const css = `${nowPlayingCss}\n${playlistCss}`;
 
-    const html = buildTemplate(customIcons);
+    const nowPlayingHtml = buildNowPlayingTemplate(customIcons);
+    const playlistHtml = buildPlaylistTemplate(customIcons);
+    const html = `
+      <div class="music-container">
+        ${nowPlayingHtml}
+        ${playlistHtml}
+      </div>
+    `;
     shadowRoot.innerHTML = `<style>${css}</style>${html}`;
 
-    this.#elements = initElements(shadowRoot);
-    await this.#portalManager.injectStyles();
+    this.#elements = {
+      ...initNowPlayingElements(shadowRoot),
+      ...initPlaylistElements(shadowRoot),
+    };
   }
 
   // ─── UI 更新方法 ─────────────────────────────────────────
-
-  /**
-   * @param {boolean} isPlaying
-   * @param {boolean} isLoading
-   */
   updatePlayback(isPlaying, isLoading) {
     const btn = this.#elements?.playPauseBtn;
     const icon = btn?.querySelector("img");
@@ -63,7 +66,6 @@ export class UIRenderer {
     );
   }
 
-  /** @param {boolean} isMuted */
   updateMute(isMuted) {
     const icon = this.#elements?.volumeIcon;
     if (icon) {
@@ -74,16 +76,11 @@ export class UIRenderer {
     }
   }
 
-  /** @param {number} v - 0~1 */
   updateVolume(v) {
     const fill = this.#elements?.volumeProgressFill;
     if (fill) fill.style.width = `${v * 100}%`;
   }
 
-  /**
-   * @param {number} currentTime
-   * @param {number} duration
-   */
   updateProgress(currentTime, duration) {
     const { progressFill, currentTimeDisplay, totalTimeDisplay } =
       this.#elements ?? {};
@@ -94,7 +91,6 @@ export class UIRenderer {
     if (totalTimeDisplay) totalTimeDisplay.textContent = formatTime(duration);
   }
 
-  /** @param {{ title: string, image: string }} music */
   updateCurrentTrack(music) {
     const { currentSongTitle, currentSongCover, currentSongDefaultCover } =
       this.#elements ?? {};
@@ -109,50 +105,25 @@ export class UIRenderer {
     }
   }
 
-  /** @param {boolean} isActive */
   updateRepeat(isActive) {
     this.#elements?.repeatBtn?.classList.toggle("active", isActive);
   }
 
-  /** @param {boolean} isActive */
   updateShuffle(isActive) {
     this.#elements?.shuffleBtn?.classList.toggle("active", isActive);
   }
 
-  /**
-   * @param {Array} musicList
-   * @param {Object} customIcons
-   */
   renderPlaylist(musicList, customIcons = {}) {
     renderPlaylist(this.#elements?.musicListContainer, musicList, customIcons);
   }
 
-  /** @param {string} id */
   highlightTrack(id) {
-    highlightItem(this.#shadowRoot, id);
-  }
-
-  // ─── Portal 委派 ─────────────────────────────────────────
-
-  /** @param {() => void} onConfirm */
-  showInteractionPrompt(onConfirm) {
-    this.#portalManager.showInteractionPrompt(onConfirm);
-  }
-
-  hideInteractionPrompt() {
-    this.#portalManager.hideInteractionPrompt();
-  }
-
-  /**
-   * @param {Object} customIcons
-   * @param {() => void} onConfirm
-   * @param {() => void} onCancel
-   */
-  showMutePopup(customIcons, onConfirm, onCancel) {
-    this.#portalManager.showMutePopup(customIcons, onConfirm, onCancel);
-  }
-
-  hideMutePopup() {
-    this.#portalManager.hideMutePopup();
+    if (!this.#shadowRoot) return;
+    this.#shadowRoot.querySelectorAll(".music-item").forEach((item) => {
+      item.classList.toggle(
+        "playing",
+        String(item.getAttribute("data-id")) === String(id),
+      );
+    });
   }
 }
