@@ -4,18 +4,16 @@ import {
   INTERACTION_OVERLAY_ID,
   MUTE_POPUP_ID,
   injectOverlayStyles,
-} from "../ui/overlay-view.js";
+} from "../ui/components/overlay-view.js";
 import { getIconUrl } from "../utils/path-resolver.js";
 
-export class OverlayInteractions {
-  #uiRenderer;
+export class OverlayService {
   #customIcons;
   #actions;
   #interactionOverlay = null;
   #mutePopup = null;
 
-  constructor(uiRenderer, customIcons, actions) {
-    this.#uiRenderer = uiRenderer;
+  constructor(customIcons, actions) {
     this.#customIcons = customIcons;
     this.#actions = actions;
   }
@@ -92,10 +90,6 @@ export class OverlayInteractions {
     el.style.opacity = "0";
     this.#mutePopup = null;
     setTimeout(() => el.remove(), 300);
-  }
-
-  highlightCurrentTrack(id) {
-    this.#uiRenderer.highlightTrack(String(id));
   }
 
   #showMutePromptIfNeeded() {

@@ -1,15 +1,17 @@
-import { loadCss } from "../utils/css-loader.js";
+import { loadCss } from "../../utils/css-loader.js";
 
-export const OVERLAY_STYLE_ID = "music-player-overlay-style";
+const OVERLAY_STYLE_ID = "music-player-overlay-style";
+const OVERLAY_CSS_URL = new URL("../styles/overlay-view.css", import.meta.url).href;
+
 export const INTERACTION_OVERLAY_ID = "interaction-overlay";
 export const MUTE_POPUP_ID = "volume-mute-portal";
 
 export async function injectOverlayStyles() {
   if (document.getElementById(OVERLAY_STYLE_ID)) return;
+  const css = await loadCss(OVERLAY_CSS_URL);
   const style = document.createElement("style");
   style.id = OVERLAY_STYLE_ID;
-  const cssUrl = new URL("./styles/overlay-view.css", import.meta.url).href;
-  style.textContent = await loadCss(cssUrl);
+  style.textContent = css;
   document.head.appendChild(style);
 }
 

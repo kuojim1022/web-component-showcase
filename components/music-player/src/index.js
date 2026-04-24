@@ -1,8 +1,10 @@
 import { CONFIG } from "./config.js";
-import { Controller } from "./controller/index.js";
-import { UIRenderer } from "./ui/index.js";
+import { Controller } from "./core/index.js";
+import { UIRenderer } from "./ui/renderer.js";
 
-const isMobileDevice = () => CONFIG.MOBILE_REGEX.test(navigator.userAgent);
+const MOBILE_REGEX =
+  /iPhone|iPad|iPod|Android|Mobile|BlackBerry|IEMobile|Opera Mini/i;
+const isMobileDevice = () => MOBILE_REGEX.test(navigator.userAgent);
 let mobileClassOwnerCount = 0;
 class MusicPlayer extends HTMLElement {
   #controller = null;
@@ -76,7 +78,6 @@ class MusicPlayer extends HTMLElement {
       defaultRepeat,
       defaultShuffle,
       customIcons,
-      readyStateThreshold: CONFIG.AUDIO_READY_STATE,
       isMobileDevice: isMobileDevice(),
     });
 

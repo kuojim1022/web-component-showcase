@@ -2,9 +2,6 @@ export const CONFIG = {
   DEFAULT_VOLUME: 0.7, // 預設音量
   DEFAULT_REPEAT: false, // 預設重複模式
   DEFAULT_SHUFFLE: false, // 預設隨機模式
-  AUDIO_READY_STATE: 3, // audio.readyState門檻，達到後才嘗試play()
-  MOBILE_REGEX:
-    /iPhone|iPad|iPod|Android|Mobile|BlackBerry|IEMobile|Opera Mini/i,
 
   DEFAULT_ICONS: {
     "icon-music": "icon-music.svg", // 音樂圖示

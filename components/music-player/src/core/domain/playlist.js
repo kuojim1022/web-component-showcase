@@ -44,11 +44,13 @@ export class Playlist {
     if (this.#history.length > 0) {
       const prevId = this.#history.pop();
       this.#saveHistory();
-      return list.find((m) => String(m.id) === String(prevId)) || null;
+      const music = list.find((m) => String(m.id) === String(prevId)) || null;
+      return music ? { music, fromHistory: true } : null;
     }
 
     const idx = list.findIndex((m) => String(m.id) === String(currentId));
-    return list[(idx - 1 + list.length) % list.length];
+    const music = list[(idx - 1 + list.length) % list.length];
+    return music ? { music, fromHistory: false } : null;
   }
 
   addToHistory(id) {

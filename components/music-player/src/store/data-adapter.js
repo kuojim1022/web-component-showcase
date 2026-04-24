@@ -1,4 +1,4 @@
-export class DataManager {
+export class DataAdapter {
   getDataSource({ endpoint = "", dataUrl = "" } = {}) {
     if (endpoint) return { type: "data-endpoint", url: endpoint };
     if (dataUrl) return { type: "data-url", url: dataUrl };

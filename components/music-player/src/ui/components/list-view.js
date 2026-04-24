@@ -1,7 +1,14 @@
-import { getIconUrl } from "../utils/path-resolver.js";
-import { formatTime } from "../utils/format.js";
+import { getIconUrl } from "../../utils/path-resolver.js";
+import { formatTime } from "../../utils/format.js";
+import { loadCss } from "../../utils/css-loader.js";
 
-export function buildPlaylistTemplate(customIcons = {}) {
+const LIST_CSS_URL = new URL("../styles/list-view.css", import.meta.url).href;
+
+export function loadListStyles() {
+  return loadCss(LIST_CSS_URL);
+}
+
+export function buildListTemplate(customIcons = {}) {
   const iconUrl = getIconUrl("icon-music.svg", customIcons);
   return `
     <div class="music-list-container">
@@ -14,7 +21,7 @@ export function buildPlaylistTemplate(customIcons = {}) {
   `;
 }
 
-export function initPlaylistElements(shadowRoot) {
+export function initListElements(shadowRoot) {
   return {
     musicListContainer: shadowRoot.getElementById("music-list"),
   };
@@ -51,7 +58,7 @@ function buildMusicItemHTML(music, iconUrl, playIconUrl) {
   `;
 }
 
-export function render(container, musicList, customIcons = {}) {
+export function renderList(container, musicList, customIcons = {}) {
   if (!container) return;
 
   const iconUrl = getIconUrl("icon-music.svg", customIcons);

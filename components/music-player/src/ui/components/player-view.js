@@ -1,6 +1,14 @@
-import { getIconUrl } from "../utils/path-resolver.js";
+import { getIconUrl } from "../../utils/path-resolver.js";
+import { loadCss } from "../../utils/css-loader.js";
 
-export function buildNowPlayingTemplate(customIcons = {}) {
+const PLAYER_CSS_URL = new URL("../styles/player-view.css", import.meta.url)
+  .href;
+
+export function loadPlayerStyles() {
+  return loadCss(PLAYER_CSS_URL);
+}
+
+export function buildPlayerTemplate(customIcons = {}) {
   const icon = (name) => getIconUrl(name, customIcons);
 
   return `
@@ -59,7 +67,7 @@ export function buildNowPlayingTemplate(customIcons = {}) {
   `;
 }
 
-export function initNowPlayingElements(shadowRoot) {
+export function initPlayerElements(shadowRoot) {
   const get = (id) => shadowRoot.getElementById(id);
   return {
     audio: get("background-audio"),
