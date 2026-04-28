@@ -164,10 +164,7 @@ window.addEventListener("resize", () => {
 
 // 初始化
 document.addEventListener("DOMContentLoaded", () => {
-  // 初始載入
   fetchBooks(0);
-
-  // 載入更多
   if ($loadMoreBtn) {
     $loadMoreBtn.addEventListener("click", function () {
       const offset = parseInt(this.dataset.offset, 10) || 0;
