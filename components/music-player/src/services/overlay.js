@@ -7,6 +7,7 @@ import {
 } from "../ui/components/overlay-view.js";
 import { getIconUrl } from "../utils/path-resolver.js";
 
+// 控制首次互動與靜音提示的顯示、隱藏與按鈕行為。
 export class OverlayService {
   #customIcons;
   #actions;

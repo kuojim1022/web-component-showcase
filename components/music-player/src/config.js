@@ -1,3 +1,4 @@
+// 提供播放器預設設定與內建圖示檔名對照。
 export const CONFIG = {
   DEFAULT_VOLUME: 0.7, // 預設音量
   DEFAULT_REPEAT: false, // 預設重複模式

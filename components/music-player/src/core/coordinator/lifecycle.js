@@ -1,7 +1,8 @@
-import { OverlayService } from "../services/overlay.js";
-import { bindAudioEvents, bindUIEvents } from "../services/event-binder.js";
-import { PlaybackCoordinator } from "./domain/playback-controller.js";
+import { OverlayService } from "../../services/overlay.js";
+import { bindAudioEvents, bindUIEvents } from "../../services/event-binder.js";
+import { PlaybackController } from "../domain/playback-controller.js";
 
+// 建立 overlay 與控制器，並完成 UI/Audio 事件接線。
 export async function setupPlaybackLifecycle({
   playlist,
   engine,
@@ -18,14 +19,14 @@ export async function setupPlaybackLifecycle({
   });
   await overlay.init();
 
-  coordinator = new PlaybackCoordinator({
+  coordinator = new PlaybackController({
     playlist,
     engine,
     state,
     overlay,
     options,
     onProgress: (currentTime, duration) =>
-      renderer.binding.updateProgress(currentTime, duration),
+      renderer.uiUpdater.updateProgress(currentTime, duration),
   });
 
   bindUIEvents(renderer.elements, coordinator);

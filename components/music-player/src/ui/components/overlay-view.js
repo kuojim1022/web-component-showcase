@@ -3,9 +3,12 @@ import { loadCss } from "../../utils/css-loader.js";
 const OVERLAY_STYLE_ID = "music-player-overlay-style";
 const OVERLAY_CSS_URL = new URL("../styles/overlay-view.css", import.meta.url).href;
 
+// 首次互動提示層的 DOM id。
 export const INTERACTION_OVERLAY_ID = "interaction-overlay";
+// 靜音提醒彈窗的 DOM id。
 export const MUTE_POPUP_ID = "volume-mute-portal";
 
+// 將 overlay 樣式注入到 document head（僅一次）。
 export async function injectOverlayStyles() {
   if (document.getElementById(OVERLAY_STYLE_ID)) return;
   const css = await loadCss(OVERLAY_CSS_URL);
@@ -15,6 +18,7 @@ export async function injectOverlayStyles() {
   document.head.appendChild(style);
 }
 
+// 建立首次互動提示的 HTML 模板。
 export function buildInteractionPromptTemplate() {
   return `
     <div class="interaction-prompt">
@@ -24,6 +28,7 @@ export function buildInteractionPromptTemplate() {
   `;
 }
 
+// 建立靜音提醒彈窗的 HTML 模板。
 export function buildMutePopupTemplate(iconUrl) {
   return `
     <div class="volume-mute-popup-content">

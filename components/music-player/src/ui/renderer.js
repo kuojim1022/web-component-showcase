@@ -8,16 +8,17 @@ import {
   initListElements,
   loadListStyles,
 } from "./components/list-view.js";
-import { ViewBinding } from "./binding.js";
+import { UIUpdater } from "./ui-updater.js";
 import { loadCss } from "../utils/css-loader.js";
 
 const LAYOUT_CSS_URL = new URL("./styles/layout.css", import.meta.url).href;
 
+// 負責掛載播放器模板與樣式，並建立 UIUpdater。
 export class UIRenderer {
   #elements = null;
   #shadowRoot = null;
   #customIcons = {};
-  #binding = null;
+  #uiUpdater = null;
 
   get elements() {
     return this.#elements;
@@ -49,14 +50,14 @@ export class UIRenderer {
       ...initListElements(shadowRoot),
     };
 
-    this.#binding = new ViewBinding({
+    this.#uiUpdater = new UIUpdater({
       getElements: () => this.#elements,
       getShadowRoot: () => this.#shadowRoot,
       getCustomIcons: () => this.#customIcons,
     });
   }
 
-  get binding() {
-    return this.#binding;
+  get uiUpdater() {
+    return this.#uiUpdater;
   }
 }

@@ -1,6 +1,7 @@
 const HISTORY_MAX = 50;
 const HISTORY_KEY = "musicPlayHistory";
 
+// 管理播放清單順序、預設曲目與上一首歷史回溯。
 export class Playlist {
   #list = [];
   #history = [];

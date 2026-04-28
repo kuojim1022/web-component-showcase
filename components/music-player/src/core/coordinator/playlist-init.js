@@ -1,11 +1,12 @@
+// 套用清單初始畫面，並決定預設曲目的提示流程。
 export function applyPlaylistInit({
   playlist,
-  binding,
+  uiUpdater,
   customIcons,
   coordinator,
   overlay,
 }) {
-  binding.renderPlaylist(playlist.list, customIcons);
+  uiUpdater.renderPlaylist(playlist.list, customIcons);
   const defaultTrack = playlist.getDefault();
   if (!defaultTrack) return;
 

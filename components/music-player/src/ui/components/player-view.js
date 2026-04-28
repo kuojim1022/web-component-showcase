@@ -4,10 +4,12 @@ import { loadCss } from "../../utils/css-loader.js";
 const PLAYER_CSS_URL = new URL("../styles/player-view.css", import.meta.url)
   .href;
 
+// 載入播放器主視圖所需 CSS。
 export function loadPlayerStyles() {
   return loadCss(PLAYER_CSS_URL);
 }
 
+// 產生播放器主視圖 HTML 模板。
 export function buildPlayerTemplate(customIcons = {}) {
   const icon = (name) => getIconUrl(name, customIcons);
 
@@ -67,6 +69,7 @@ export function buildPlayerTemplate(customIcons = {}) {
   `;
 }
 
+// 從 shadowRoot 快取播放器常用 DOM 參考。
 export function initPlayerElements(shadowRoot) {
   const get = (id) => shadowRoot.getElementById(id);
   return {

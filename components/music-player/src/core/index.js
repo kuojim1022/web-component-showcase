@@ -1,15 +1,22 @@
-import { State } from "./domain/state.js";
+import { State } from "./domain/playback-state.js";
 import { AudioEngine } from "./domain/audio-engine.js";
 import { Playlist } from "./domain/playlist.js";
 import { CONFIG } from "../config.js";
-import { loadPlaylistFromRaw, loadPlaylistFromSource } from "./data-loader.js";
-import { bindStateToUI, syncInitialStateToUI } from "./state-sync.js";
-import { setupPlaybackLifecycle } from "./lifecycle.js";
-import { applyPlaylistInit } from "./playlist-init.js";
+import {
+  loadPlaylistFromRaw,
+  loadPlaylistFromSource,
+} from "../store/music-repository.js";
+import {
+  bindStateToUI,
+  syncInitialStateToUI,
+} from "./coordinator/state-ui-bridge.js";
+import { setupPlaybackLifecycle } from "./coordinator/lifecycle.js";
+import { applyPlaylistInit } from "./coordinator/playlist-init.js";
 
 // audio.readyState門檻，建議2 or 3
 const AUDIO_READY_STATE_THRESHOLD = 3;
 
+// 協調資料載入、狀態建立與播放生命週期的核心入口。
 export class Controller {
   #playlist = new Playlist();
   #engine = null;
@@ -57,8 +64,8 @@ export class Controller {
       isMobileDevice: options.isMobileDevice,
     });
 
-    bindStateToUI(this.#state, this.#renderer.binding);
-    syncInitialStateToUI(this.#state, this.#renderer.binding);
+    bindStateToUI(this.#state, this.#renderer.uiUpdater);
+    syncInitialStateToUI(this.#state, this.#renderer.uiUpdater);
 
     const { overlay, coordinator } = await setupPlaybackLifecycle({
       playlist: this.#playlist,
@@ -72,7 +79,7 @@ export class Controller {
 
     applyPlaylistInit({
       playlist: this.#playlist,
-      binding: this.#renderer.binding,
+      uiUpdater: this.#renderer.uiUpdater,
       customIcons: this.#options.customIcons,
       coordinator: this.#coordinator,
       overlay: this.#overlay,
@@ -91,7 +98,7 @@ export class Controller {
     loadPlaylistFromRaw(rawList, this.#playlist);
     applyPlaylistInit({
       playlist: this.#playlist,
-      binding: this.#renderer.binding,
+      uiUpdater: this.#renderer.uiUpdater,
       customIcons: this.#options.customIcons,
       coordinator: this.#coordinator,
       overlay: this.#overlay,

@@ -1,11 +1,10 @@
-import { CONFIG } from "./config.js";
 import { Controller } from "./core/index.js";
+import { resolveControllerOptions } from "./core/coordinator/options-resolver.js";
 import { UIRenderer } from "./ui/renderer.js";
-
-const MOBILE_REGEX =
-  /iPhone|iPad|iPod|Android|Mobile|BlackBerry|IEMobile|Opera Mini/i;
-const isMobileDevice = () => MOBILE_REGEX.test(navigator.userAgent);
-let mobileClassOwnerCount = 0;
+import {
+  acquireMobileClass,
+  releaseMobileClass,
+} from "./utils/device-class-manager.js";
 class MusicPlayer extends HTMLElement {
   #controller = null;
   #initialized = false;
@@ -20,66 +19,20 @@ class MusicPlayer extends HTMLElement {
     if (this.#initialized) return;
     this.#initialized = true;
 
-    const getAttr = (name) => this.getAttribute(name);
+    const controllerOptions = resolveControllerOptions(this);
 
-    // ── 解析屬性 ──────────────────────────────────────────
-    const parseVolume = (v) => {
-      const p = parseFloat(v);
-      return isNaN(p) ? CONFIG.DEFAULT_VOLUME : Math.max(0, Math.min(1, p));
-    };
-    const parseBooleanAttribute = (v, d) => {
-      if (!v) return d;
-      return ["true", "1", "yes", "on"].includes(String(v).toLowerCase());
-    };
-
-    const defaultVolume = parseVolume(getAttr("default-volume"));
-    const defaultRepeat = parseBooleanAttribute(
-      getAttr("default-repeat"),
-      CONFIG.DEFAULT_REPEAT,
-    );
-    const defaultShuffle = parseBooleanAttribute(
-      getAttr("default-shuffle"),
-      CONFIG.DEFAULT_SHUFFLE,
-    );
-
-    let customIcons = {};
-    const customIconsAttr = getAttr("custom-icons");
-    if (customIconsAttr) {
-      try {
-        customIcons = JSON.parse(customIconsAttr);
-      } catch (e) {
-        console.warn("[MusicPlayer] custom-icons 解析失敗:", e);
-      }
-    }
-
-    // ── 資料來源 ──────────────────────────────────────────
-    const endpoint =
-      getAttr("data-endpoint") || window.MUSIC_PLAYER_ENDPOINT || "";
-    const dataUrl = !endpoint
-      ? getAttr("data-url") || window.MUSIC_PLAYER_DATA_URL || ""
-      : "";
-
-    // ── 行動裝置偵測 ──────────────────────────────────────
-    if (isMobileDevice()) {
-      mobileClassOwnerCount += 1;
+    // 行動裝置偵測
+    if (controllerOptions.isMobileDevice) {
+      acquireMobileClass();
       this.#ownsMobileClass = true;
-      document.body.classList.add("mobile-device");
     }
 
-    // ── 掛載 UI ──────────────────────────────────────────
+    // 掛載 UI
     const uiRenderer = new UIRenderer();
-    await uiRenderer.mount(this.shadowRoot, customIcons);
+    await uiRenderer.mount(this.shadowRoot, controllerOptions.customIcons);
 
-    // ── 初始化協調器 ──────────────────────────────────────
-    this.#controller = new Controller(uiRenderer, {
-      endpoint,
-      dataUrl,
-      defaultVolume,
-      defaultRepeat,
-      defaultShuffle,
-      customIcons,
-      isMobileDevice: isMobileDevice(),
-    });
+    // 初始化協調器
+    this.#controller = new Controller(uiRenderer, controllerOptions);
 
     await this.#controller.init();
   }
@@ -88,11 +41,8 @@ class MusicPlayer extends HTMLElement {
     this.#controller?.destroy();
     this.#controller = null;
     if (this.#ownsMobileClass) {
-      mobileClassOwnerCount = Math.max(0, mobileClassOwnerCount - 1);
+      releaseMobileClass();
       this.#ownsMobileClass = false;
-      if (mobileClassOwnerCount === 0) {
-        document.body.classList.remove("mobile-device");
-      }
     }
     this.#initialized = false;
   }

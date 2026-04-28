@@ -89,16 +89,19 @@
 .player-info h4 {
   margin: 0;
   font-size: 20px;
-  max-width: 200px;
-  min-width: 140px;
-  line-height: 1.8;
+  max-width: 400px;
+  min-width: 200px;
   letter-spacing: 0.05em;
+  line-height: 1.5;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1200px) {
   .player-info h4 {
-    max-width: 140px;
+    max-width: 200px;
   }
 }
 
@@ -107,12 +110,13 @@
     font-size: 16px;
     max-width: 100%;
     min-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 }
 
 .progress-container {
   width: 100%;
-  max-width: 540px;
   min-width: 200px;
   display: flex;
   align-items: center;
@@ -221,14 +225,14 @@
 .play-btn {
   width: 40px;
   height: 40px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   background: #7158b4;
   color: white;
 }
 
 .play-btn img.control-icon {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   filter: brightness(0) invert(1);
 }
 
@@ -286,14 +290,8 @@
 
 .volume-progress-container {
   position: relative;
-  width: 200px;
+  width: 100px;
   height: 6px;
-}
-
-@media (max-width: 1440px) {
-  .volume-progress-container {
-    width: 100px;
-  }
 }
 
 .volume-progress-bar {

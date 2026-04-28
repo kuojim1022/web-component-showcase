@@ -1,3 +1,4 @@
+// 建立可重複使用的拖曳互動綁定（pointer 事件）。
 export function setupDrag(element, onUpdate) {
   if (!element) return;
 

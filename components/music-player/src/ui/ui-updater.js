@@ -2,7 +2,8 @@ import { getIconUrl } from "../utils/path-resolver.js";
 import { formatTime } from "../utils/format.js";
 import { renderList } from "./components/list-view.js";
 
-export class ViewBinding {
+// 根據狀態變更更新播放器畫面與清單呈現。
+export class UIUpdater {
   #getElements;
   #getShadowRoot;
   #getCustomIcons;

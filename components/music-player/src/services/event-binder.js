@@ -1,5 +1,6 @@
 import { setupDrag } from "../utils/drag.js";
 
+// 綁定畫面操作事件到播放控制器方法。
 export function bindUIEvents(elements, coordinator) {
   const {
     playPauseBtn,
@@ -19,24 +20,27 @@ export function bindUIEvents(elements, coordinator) {
   shuffleBtn.onclick = () => coordinator.onShuffleClick();
   repeatBtn.onclick = () => coordinator.onRepeatClick();
   volumeToggleBtn.onclick = () => coordinator.toggleMute();
-  volumeToggleBtn.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
+  volumeToggleBtn.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
       coordinator.toggleMute();
     }
   });
 
   if (musicListContainer) {
-    musicListContainer.onpointerdown = (e) =>
-      coordinator.onPlaylistPointerDown(e);
+    musicListContainer.onpointerdown = (event) =>
+      coordinator.onPlaylistPointerDown(event);
   }
 
-  setupDrag(progressBar, (e) => coordinator.onProgressDrag(e, progressBar));
-  setupDrag(volumeProgressBar, (e) =>
-    coordinator.onVolumeDrag(e, volumeProgressBar),
+  setupDrag(progressBar, (event) =>
+    coordinator.onProgressDrag(event, progressBar),
+  );
+  setupDrag(volumeProgressBar, (event) =>
+    coordinator.onVolumeDrag(event, volumeProgressBar),
   );
 }
 
+// 綁定 audio 元素事件到播放控制器方法。
 export function bindAudioEvents(engine, coordinator) {
   engine.bindEvents({
     onTimeUpdate: coordinator.updateProgress,

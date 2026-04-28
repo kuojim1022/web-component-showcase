@@ -4,10 +4,12 @@ import { loadCss } from "../../utils/css-loader.js";
 
 const LIST_CSS_URL = new URL("../styles/list-view.css", import.meta.url).href;
 
+// 載入清單視圖所需 CSS。
 export function loadListStyles() {
   return loadCss(LIST_CSS_URL);
 }
 
+// 產生音樂清單區塊的 HTML 模板。
 export function buildListTemplate(customIcons = {}) {
   const iconUrl = getIconUrl("icon-music.svg", customIcons);
   return `
@@ -21,6 +23,7 @@ export function buildListTemplate(customIcons = {}) {
   `;
 }
 
+// 從 shadowRoot 取得清單視圖的 DOM 參考。
 export function initListElements(shadowRoot) {
   return {
     musicListContainer: shadowRoot.getElementById("music-list"),
@@ -58,6 +61,7 @@ function buildMusicItemHTML(music, iconUrl, playIconUrl) {
   `;
 }
 
+// 將音樂資料渲染成清單項目。
 export function renderList(container, musicList, customIcons = {}) {
   if (!container) return;
 

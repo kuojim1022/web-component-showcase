@@ -1,3 +1,4 @@
+// 封裝 HTMLAudioElement 與 Web Audio 的統一控制介面。
 export class AudioEngine {
   #audio;
   #audioContext = null;

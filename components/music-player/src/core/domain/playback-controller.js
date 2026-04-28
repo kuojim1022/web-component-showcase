@@ -1,6 +1,7 @@
 import { resolveUserDataPath } from "../../utils/path-resolver.js";
 
-export class PlaybackCoordinator {
+// 集中處理播放互動、音訊事件與狀態寫入的核心控制器。
+export class PlaybackController {
   #playlist;
   #engine;
   #state;

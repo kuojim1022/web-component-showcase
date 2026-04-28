@@ -2,7 +2,7 @@
   {
     "id": "music1",
     "src": "/src/media/music/goldberg-var-06.mp3",
-    "title": "Goldberg Variations, BWV 988 - Variatio 5",
+    "title": "Goldberg Variations - Variatio 5",
     "image": "/src/images/music/cover1.jpg",
     "lengthSeconds": 94,
     "isDefault": true
@@ -10,7 +10,7 @@
   {
     "id": "music2",
     "src": "/src/media/music/goldberg-var-11.mp3",
-    "title": "Goldberg Variations, BWV 988 - Variatio 10",
+    "title": "Goldberg Variations - Variatio 10",
     "image": "/src/images/music/cover2.jpg",
     "lengthSeconds": 105,
     "isDefault": false
@@ -18,7 +18,7 @@
   {
     "id": "music3",
     "src": "/src/media/music/goldberg-var-13.mp3",
-    "title": "Goldberg Variations, BWV 988 - Variatio 12",
+    "title": "Goldberg Variations - Variatio 12",
     "image": "/src/images/music/cover3.jpg",
     "lengthSeconds": 135,
     "isDefault": false
@@ -26,7 +26,7 @@
   {
     "id": "music4",
     "src": "/src/media/music/goldberg-var-18.mp3",
-    "title": "Goldberg Variations, BWV 988 - Variatio 17",
+    "title": "Goldberg Variations - Variatio 17",
     "image": "/src/images/music/cover4.jpg",
     "lengthSeconds": 104,
     "isDefault": false
@@ -34,7 +34,7 @@
   {
     "id": "music5",
     "src": "/src/media/music/goldberg-var-25.mp3",
-    "title": "Goldberg Variations, BWV 988 - Variatio 24",
+    "title": "Goldberg Variations - Variatio 24",
     "image": "/src/images/music/cover5.jpg",
     "lengthSeconds": 165,
     "isDefault": false

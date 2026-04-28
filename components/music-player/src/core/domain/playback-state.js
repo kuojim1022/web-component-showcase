@@ -1,5 +1,6 @@
 import { CONFIG } from "../../config.js";
 
+// 儲存播放器狀態，並提供簡單的訂閱通知機制。
 export class State {
   #data = {
     currentMusicId: null,
