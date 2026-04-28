@@ -16,6 +16,10 @@
   transition: opacity 0.3s ease;
 }
 
+#volume-mute-portal.is-overlay-visible {
+  opacity: 1;
+}
+
 .volume-mute-popup-content {
   display: flex;
   align-items: center;
@@ -84,6 +88,10 @@
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+#interaction-overlay.is-overlay-visible {
+  opacity: 1;
 }
 
 .interaction-prompt {

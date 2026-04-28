@@ -4,30 +4,30 @@ export function setupDrag(element, onUpdate) {
 
   let active = false;
 
-  const handleMove = (e) => {
-    if (active) onUpdate(e);
+  const handleMove = (event) => {
+    if (active) onUpdate(event);
   };
 
-  const stopDrag = (e) => {
+  const stopDrag = (event) => {
     if (!active) return;
     active = false;
     element.classList.remove("dragging");
     try {
-      element.releasePointerCapture(e.pointerId);
+      element.releasePointerCapture(event.pointerId);
     } catch {}
     element.removeEventListener("pointermove", handleMove);
     element.removeEventListener("pointerup", stopDrag);
     element.removeEventListener("pointercancel", stopDrag);
   };
 
-  element.onpointerdown = (e) => {
-    if (e.pointerType === "mouse" && e.button !== 0) return;
+  element.onpointerdown = (event) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
     active = true;
     element.classList.add("dragging");
     try {
-      element.setPointerCapture(e.pointerId);
+      element.setPointerCapture(event.pointerId);
     } catch {}
-    onUpdate(e);
+    onUpdate(event);
     element.addEventListener("pointermove", handleMove);
     element.addEventListener("pointerup", stopDrag);
     element.addEventListener("pointercancel", stopDrag);

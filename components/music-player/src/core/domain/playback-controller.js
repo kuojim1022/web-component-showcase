@@ -19,8 +19,10 @@ export class PlaybackController {
   }
 
   setMusicInfo(id) {
-    const music = this.#playlist.list.find((m) => String(m.id) === String(id));
-    if (!music) return;
+    const musicItem = this.#playlist.list.find(
+      (music) => String(music.id) === String(id),
+    );
+    if (!musicItem) return;
 
     if (
       String(this.#state.get("currentMusicId")) === String(id) &&
@@ -29,10 +31,10 @@ export class PlaybackController {
       return;
 
     this.#state.set("isSeeking", false);
-    this.#state.set("currentMusicId", music.id);
-    this.#state.set("currentTrack", music);
+    this.#state.set("currentMusicId", musicItem.id);
+    this.#state.set("currentTrack", musicItem);
 
-    this.#engine.load(resolveUserDataPath(music.src));
+    this.#engine.load(resolveUserDataPath(musicItem.src));
   }
 
   tryPlayAudio() {

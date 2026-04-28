@@ -28,7 +28,7 @@ export class State {
 
   set(key, value) {
     this.#data[key] = value;
-    this.#listeners[key]?.forEach((fn) => fn(value));
+    this.#listeners[key]?.forEach((listener) => listener(value));
   }
 
   on(key, callback) {

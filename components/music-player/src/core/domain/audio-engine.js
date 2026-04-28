@@ -34,18 +34,18 @@ export class AudioEngine {
     return this.#isWebAudioEnabled;
   }
 
-  onceCanPlay(fn) {
-    this.#audio.addEventListener("canplay", fn, { once: true });
+  onceCanPlay(handler) {
+    this.#audio.addEventListener("canplay", handler, { once: true });
   }
 
   bindEvents(handlers) {
-    const a = this.#audio;
-    a.ontimeupdate = handlers.onTimeUpdate;
-    a.onwaiting = handlers.onWaiting;
-    a.oncanplay = handlers.onCanPlay;
-    a.onplay = a.onplaying = handlers.onPlay;
-    a.onpause = handlers.onPause;
-    a.onended = handlers.onEnded;
+    const audioElement = this.#audio;
+    audioElement.ontimeupdate = handlers.onTimeUpdate;
+    audioElement.onwaiting = handlers.onWaiting;
+    audioElement.oncanplay = handlers.onCanPlay;
+    audioElement.onplay = audioElement.onplaying = handlers.onPlay;
+    audioElement.onpause = handlers.onPause;
+    audioElement.onended = handlers.onEnded;
   }
 
   initAudio({
@@ -87,11 +87,11 @@ export class AudioEngine {
     }
   }
 
-  setVolume(v) {
+  setVolume(volume) {
     if (this.#isWebAudioEnabled && this.#gainNode) {
-      this.#gainNode.gain.value = v;
+      this.#gainNode.gain.value = volume;
     } else {
-      this.#audio.volume = v;
+      this.#audio.volume = volume;
     }
   }
 

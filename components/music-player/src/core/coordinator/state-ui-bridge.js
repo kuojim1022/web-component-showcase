@@ -6,12 +6,14 @@ export function bindStateToUI(state, uiUpdater) {
   state.on("isLoading", () =>
     uiUpdater.updatePlayback(state.get("isPlaying"), state.get("isLoading")),
   );
-  state.on("isMuted", (v) => uiUpdater.updateMute(v));
-  state.on("currentVolume", (v) => uiUpdater.updateVolume(v));
-  state.on("isRepeatMode", (v) => uiUpdater.updateRepeat(v));
-  state.on("isShuffleMode", (v) => uiUpdater.updateShuffle(v));
+  state.on("isMuted", (value) => uiUpdater.updateMute(value));
+  state.on("currentVolume", (value) => uiUpdater.updateVolume(value));
+  state.on("isRepeatMode", (value) => uiUpdater.updateRepeat(value));
+  state.on("isShuffleMode", (value) => uiUpdater.updateShuffle(value));
   state.on("currentTrack", (music) => uiUpdater.updateCurrentTrack(music));
-  state.on("currentMusicId", (id) => uiUpdater.highlightTrack(String(id)));
+  state.on("currentMusicId", (musicId) =>
+    uiUpdater.highlightTrack(String(musicId)),
+  );
 }
 
 // 依目前狀態立即同步一次初始 UI 畫面。

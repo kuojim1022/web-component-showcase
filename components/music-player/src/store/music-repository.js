@@ -41,7 +41,10 @@ function extractMusicData(payload, sourceType) {
 }
 
 function mapMusicAssets(list) {
-  return list.map((m) => ({ ...m, image: resolveUserDataPath(m.image) }));
+  return list.map((musicItem) => ({
+    ...musicItem,
+    image: resolveUserDataPath(musicItem.image),
+  }));
 }
 
 // 依設定來源抓取遠端資料並載入播放清單。

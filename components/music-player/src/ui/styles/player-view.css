@@ -61,10 +61,27 @@
   flex-shrink: 0;
 }
 
-.player-cover #current-song-cover {
+.player-cover:not(.is-cover-missing) #current-song-cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.player-cover.is-cover-missing #current-song-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.player-cover.is-cover-missing #current-song-default-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-cover:not(.is-cover-missing) #current-song-default-cover {
   display: none;
 }
 
@@ -72,9 +89,6 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   font-size: 1.5em;
 }

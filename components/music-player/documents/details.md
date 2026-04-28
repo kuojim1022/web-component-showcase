@@ -46,6 +46,7 @@ music-player/
 │   ├── ui/                            # 呈現層
 │   │   ├── renderer.js                # 掛載模板樣式；透過 getter 對外提供 uiUpdater
 │   │   ├── ui-updater.js              # 依狀態更新 Shadow DOM（update* / renderPlaylist）
+│   │   ├── ui-default-cover.js        # 清單封面預設圖與載入錯誤委派（event delegation）
 │   │   ├── components/                # 各視圖模板
 │   │   │   ├── player-view.js         # 播放器主視圖
 │   │   │   ├── list-view.js           # 清單視圖
@@ -99,6 +100,7 @@ music-player/
 | `src/store/music-repository.js`          | 資料來源判斷、fetch、payload 解析、資源路徑映射與歌單載入                                                                                                      |
 | `src/core/coordinator/playlist-init.js`  | 套用歌單至畫面（UI）並設定預設曲目與初次互動提示                                                                                                               |
 | `src/ui/ui-updater.js`                   | 依狀態更新 Shadow 內 DOM（`update*`、`renderPlaylist`、`highlightTrack`）                                                                                      |
+| `src/ui/ui-default-cover.js`             | 清單項目封面預設 HTML、委派處理載入失敗                                                                                                                     |
 | `src/services/event-binder.js`           | 把畫面點擊/拖曳與音訊事件，轉給協調流程（coordinator）                                                                                                         |
 | `src/services/overlay.js`                | 初次互動提示與靜音提示（overlay）的生命週期與按鈕行為                                                                                                          |
 | `src/ui/renderer.js`                     | 渲染器（renderer）：掛載模板與樣式，建立畫面更新器（UIUpdater）並對外提供更新入口                                                                              |

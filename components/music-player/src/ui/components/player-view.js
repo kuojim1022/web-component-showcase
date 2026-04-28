@@ -19,10 +19,10 @@ export function buildPlayerTemplate(customIcons = {}) {
 
       <div class="player-controls">
         <div class="player-info">
-          <div class="player-cover">
-            <img id="current-song-cover" src="" alt="當前播放音樂封面">
+          <div class="player-cover is-cover-missing">
+            <img id="current-song-cover" src="">
             <div class="default-cover" id="current-song-default-cover">
-              <img src="${icon("icon-music.svg")}" alt="音樂圖示" class="icon-music">
+              <img src="${icon("icon-music.svg")}" class="icon-music">
             </div>
           </div>
           <h4 id="current-song-title">請選擇音樂</h4>

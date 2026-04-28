@@ -52,16 +52,24 @@ export class UIUpdater {
   }
 
   updateCurrentTrack(music) {
-    const { currentSongTitle, currentSongCover, currentSongDefaultCover } =
-      this.#getElements() ?? {};
+    const { currentSongTitle, currentSongCover } = this.#getElements() ?? {};
     if (currentSongTitle) currentSongTitle.textContent = music.title;
     const hasImg = !!music.image;
-    if (currentSongCover) {
-      currentSongCover.src = music.image || "";
-      currentSongCover.style.display = hasImg ? "block" : "none";
-    }
-    if (currentSongDefaultCover) {
-      currentSongDefaultCover.style.display = hasImg ? "none" : "flex";
+    const playerCover = currentSongCover?.closest(".player-cover");
+    if (!currentSongCover || !playerCover) return;
+
+    currentSongCover.onerror = null;
+    if (hasImg) {
+      playerCover.classList.remove("is-cover-missing");
+      currentSongCover.onerror = () => {
+        currentSongCover.onerror = null;
+        currentSongCover.removeAttribute("src");
+        playerCover.classList.add("is-cover-missing");
+      };
+      currentSongCover.src = music.image;
+    } else {
+      currentSongCover.removeAttribute("src");
+      playerCover.classList.add("is-cover-missing");
     }
   }
 

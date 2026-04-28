@@ -21,7 +21,11 @@ export class Playlist {
   }
 
   getDefault() {
-    return this.#list.find((m) => m.isDefault) || this.#list[0] || null;
+    return (
+      this.#list.find((musicItem) => musicItem.isDefault) ||
+      this.#list[0] ||
+      null
+    );
   }
 
   getNext(currentId, isShuffleMode) {
@@ -29,12 +33,16 @@ export class Playlist {
     if (list.length === 0) return null;
 
     if (isShuffleMode) {
-      const other = list.filter((m) => String(m.id) !== String(currentId));
+      const other = list.filter(
+        (musicItem) => String(musicItem.id) !== String(currentId),
+      );
       if (other.length === 0) return list[0];
       return other[Math.floor(Math.random() * other.length)];
     }
 
-    const idx = list.findIndex((m) => String(m.id) === String(currentId));
+    const idx = list.findIndex(
+      (musicItem) => String(musicItem.id) === String(currentId),
+    );
     return list[(idx + 1) % list.length];
   }
 
@@ -45,13 +53,16 @@ export class Playlist {
     if (this.#history.length > 0) {
       const prevId = this.#history.pop();
       this.#saveHistory();
-      const music = list.find((m) => String(m.id) === String(prevId)) || null;
-      return music ? { music, fromHistory: true } : null;
+      const musicItem =
+        list.find((music) => String(music.id) === String(prevId)) || null;
+      return musicItem ? { music: musicItem, fromHistory: true } : null;
     }
 
-    const idx = list.findIndex((m) => String(m.id) === String(currentId));
-    const music = list[(idx - 1 + list.length) % list.length];
-    return music ? { music, fromHistory: false } : null;
+    const idx = list.findIndex(
+      (musicItem) => String(musicItem.id) === String(currentId),
+    );
+    const musicItem = list[(idx - 1 + list.length) % list.length];
+    return musicItem ? { music: musicItem, fromHistory: false } : null;
   }
 
   addToHistory(id) {
