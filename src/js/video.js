@@ -23,7 +23,6 @@ async function loadVideoList() {
     if (!response.ok) throw new Error("無法載入影片列表");
 
     const data = await response.json();
-    // API 格式：{ status, list }；靜態 JSON 可能直接是陣列
     const list = Array.isArray(data) ? data : (data?.list ?? []);
     if (!list.length) {
       container.innerHTML = '<p class="no-data">暫無影音資料</p>';

@@ -1,7 +1,4 @@
-/**
- * 全站共用腳本（非 module，由各頁以 <script src> 引入）
- */
-
+// 回到頂端按鈕
 (function () {
   const SCROLL_THRESHOLD = 240;
 

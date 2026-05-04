@@ -1,5 +1,3 @@
-// ── 書架 Grid 管理 ─────────────────────────────────────
-
 // 讀取目前--col-count
 function getColCount(container) {
   return (
@@ -25,14 +23,12 @@ function syncShelfItems(container) {
   const existing = container.querySelectorAll(".bookshelf-bottom-item");
   const difference = rowCount - existing.length;
   if (difference > 0) {
-    // 不夠，補增
     for (let i = 0; i < difference; i++) {
       const el = document.createElement("div");
       el.className = "bookshelf-bottom-item";
       container.appendChild(el);
     }
   } else if (difference < 0) {
-    // 太多，刪除多餘的（從最後開始刪）
     for (let i = 0; i < Math.abs(difference); i++) {
       const last = container.querySelector(".bookshelf-bottom-item:last-child");
       if (last) last.remove();
@@ -104,7 +100,6 @@ function handleSuccess(response) {
     );
     revealShelfTop();
   } else {
-    // 無資料時仍需移除 loading，避免狀態永久保持
     revealShelfTop();
   }
 }
